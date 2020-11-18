@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/employee_requests_fragment">
+
+    <fragment
+        android:id="@+id/employee_requests_fragment"
+        android:name="com.example.itools.ui.fragment.EmployeeRequestsControll"
+        android:label="requests"
+        tools:layout="@layout/employee_requests" />
+    <fragment
+        android:id="@+id/employee_stock_fragment"
+        android:name="com.example.itools.ui.fragment.EmployeeStockControll"
+        android:label="EmployeeStock"
+        tools:layout="@layout/employee_stock_categories">
+        <action
+            android:id="@+id/action_employee_stock_fragment_to_employee_form_new_category"
+            app:destination="@id/employee_form_new_category" />
+        <action
+            android:id="@+id/action_employee_stock_fragment_to_employeeStockProducts"
+            app:destination="@id/employeeStockProducts" />
+    </fragment>
+    <fragment
+        android:id="@+id/employee_form_new_category"
+        android:name="com.example.itools.ui.fragment.EmployeeFormNewCategory"
+        android:label="EmployeeFormNewCategory"
+        tools:layout="@layout/form_add_category">
+        <action
+            android:id="@+id/action_employee_form_new_category_to_employee_stock_fragment"
+            app:destination="@id/employee_stock_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/employeeStockProducts"
+        android:name="com.example.itools.ui.fragment.EmployeeStockProducts"
+        android:label="EmployeeStockProducts"
+        tools:layout="@layout/employee_stock_products_list">
+        <action
+            android:id="@+id/action_employeeStockProducts_to_employee_stock_fragment"
+            app:destination="@id/employee_stock_fragment" />
+    </fragment>
+</navigation>
